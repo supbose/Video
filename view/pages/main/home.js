@@ -167,7 +167,11 @@ const utils = require('../../../src/utils')
   //搜索框输入提示
   search_text.addEventListener('keyup', e => {
     let val = search_text.value
-    reqSearch(val)
+    if (e.keyCode === 13) {
+      search_btn.click()
+    }else{
+      reqSearch(val)
+    }
   })
   //搜索item点击
   search_ul.addEventListener('click', e => {
@@ -175,10 +179,18 @@ const utils = require('../../../src/utils')
     for (let i = 0; i < path.length; i++) {
       if ((path[i].className + '').includes('result-item')) {
         let query = path[i].lastChild.nodeValue;
-        popups.show()
-        popups.loading()
-        ipcRenderer.send('query', query)
+        search_text.value = query
+        submit(search_text.value)
       }
+    }
+  })
+
+  //搜索按钮点击
+  search_btn.addEventListener('click', e => {
+    if (utils.isEmptyText(search_text.value)) {
+      alert('未检查搜索内容')
+    } else {
+      submit(search_text.value)
     }
   })
   //列表item点击
@@ -187,11 +199,13 @@ const utils = require('../../../src/utils')
     for (let i = 0; i < path.length; i++) {
       if ((path[i].className + '').includes('list_item')) {
         let query = path[i].querySelector('.video_meta_title').title;
-        popups.show()
-        popups.loading()
-        ipcRenderer.send('query', query)
+        submit(query)
       }
     }
   })
-
+  function submit(name) {
+    popups.show()
+    popups.loading()
+    ipcRenderer.send('query', name)
+  }
 }

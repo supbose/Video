@@ -1,7 +1,7 @@
 const { remote, ipcRenderer } = require('electron')
 const Page = require('../../../src/page')
 const main = document.querySelector('main')
-const loading = require('./loading')
+
 let page = new Page(main)
 //获取当前窗口
 const win = remote.getCurrentWindow()
