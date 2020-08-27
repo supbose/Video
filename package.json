@@ -1,0 +1,17 @@
+{
+  "name": "video",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "author": "guo",
+  "license": "ISC",
+  "dependencies": {
+    "glasstron":"^0.0.3"
+  },
+  "devDependencies": {
+    "electron": "^9.2.0"
+  }
+}

@@ -1,0 +1,93 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>具映</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../icon/icon.css">
+  
+</head>
+
+<body>
+  <!-- 标题栏 -->
+  <header>
+    <div class="logo">
+
+    </div>
+    <div class="title">
+      具映
+    </div>
+    <div class="controls">
+      <div class="icon icon_mini"></div>
+      <div class="icon icon_max"></div>
+      <div class="icon icon_close"></div>
+    </div>
+  </header>
+  <!-- 标题栏 End -->
+  <!-- 主体部分 -->
+  <main>
+
+  </main>
+  <!-- 主体部分 End -->
+  <!-- 弹出层 -->
+  <div id="popups">
+    <button id="popups_hide">
+      <div class="icon icon_close" style=""></div>
+    </button>
+    <div class="popups_warpper">
+      
+    </div>
+  </div>
+  <!-- 弹出层 End -->
+  <!-- 底部导航  -->
+  <footer>
+    <ul>
+      <li class="current" title="home"">
+            <div  class=" icon icon_home "  style=" font-size: 26px;">
+        </div>
+      </li>
+      <li title="收藏">
+        <div class="icon icon_heart" style="font-size: 26px;"></div>
+      </li>
+      <li title="设置">
+        <div class="icon icon_settings" style="font-size: 26px;"></div>
+      </li>
+    </ul>
+
+  </footer>
+  <!-- 底部导航 End -->
+</body>
+<!-- 模板 -->
+<template id="home_t">
+  <div class="home_top">
+    <div class="home_top_s">
+      <input type="text" id="search_text">
+      <button id="search_btn">
+        <svg class="btn_s" style="width: 16px; height: 16px;vertical-align: middle;fill: currentColor;overflow: hidden;"
+          viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1466">
+          <path
+            d="M995.830324 995.833186c-37.551478 37.555771-98.442595 37.555771-135.998366 0L690.099793 826.096728c-69.778525 44.731805-152.275014 71.438385-241.32652 71.438385C200.92894 897.535113 0.002848 696.614745 0.002848 448.770411 0.002848 200.920354 200.92894-1.4e-05 448.773273-1.4e-05c247.855781 0 448.770426 200.920368 448.770426 448.770426 0 89.047214-26.700857 171.536548-71.439816 241.333675l169.726442 169.725011C1033.386095 897.384867 1033.386095 958.277416 995.830324 995.833186L995.830324 995.833186zM448.773273 128.218472C271.747739 128.218472 128.23135 271.734861 128.23135 448.770411c0 177.031258 143.510665 320.547647 320.541923 320.547647 177.036982 0 320.547647-143.516389 320.547647-320.547647C769.32092 271.734861 625.810255 128.218472 448.773273 128.218472L448.773273 128.218472zM448.773273 128.218472"
+            p-id="1467"></path>
+        </svg>
+      </button>
+      <ul id="search_list" style="display: none;">
+      </ul>
+    </div>
+  </div>
+  <div class="home_bot">
+
+  </div>
+</template>
+<template id="like_t">
+  <div>收藏进度:待开始</div>
+</template>
+<template id="set_t">
+  <div>设置进度:待开始</div>
+</template>
+<!-- 模板 End -->
+<script src="main.js"></script>
+<script src="./home.js"></script>
+<script src="./like.js"></script>
+<script src="./set.js"></script>
+
+</html>
