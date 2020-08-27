@@ -50,13 +50,10 @@ ipcMain.on('push', (e, arg) => {
   if (arg == 'init') {
     //读取总榜_aqiyi
     resource.pushIqyTop(1).then(value => {
-      mainWin.webContents.send('init_iqiyi',"电影",value)
-    })
-    resource.pushIqyTop(4).then(value => {
-      mainWin.webContents.send('init_iqiyi',"动漫",value)
+      mainWin.webContents.send('init_iqiyi', "电影", value)
     })
     resource.pushIqyTop(6).then(value => {
-      mainWin.webContents.send('init_iqiyi',"综艺",value)
+      mainWin.webContents.send('init_iqiyi', "综艺", value)
     })
     resource.pushIqyTop(2).then(value => {
       mainWin.webContents.send('init_iqiyi', "电视剧", value)
@@ -72,5 +69,7 @@ ipcMain.on('push', (e, arg) => {
 })
 ipcMain.on('query', (e, query) => {
   //查询接口....
-
+  resource.queryName(query).then(value => {
+    mainWin.webContents.send('query', value)
+  })
 })

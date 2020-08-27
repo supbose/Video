@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "electron ."
+    "test": "chcp 65001 && electron ."
   },
   "author": "guo",
   "license": "ISC",
   "dependencies": {
-    "glasstron":"^0.0.3"
+    "fast-xml-parser": "^3.17.4",
+    "glasstron": "^0.0.3"
   },
   "devDependencies": {
     "electron": "^9.2.0"

@@ -29,7 +29,7 @@ const utils = require('../../../src/utils')
   //获取热搜,总榜
   ipcRenderer.send('push', 'init')
   //爱奇艺推荐
-  ipcRenderer.on('init_iqiyi', (e,type ,arg) => {
+  ipcRenderer.on('init_iqiyi', (e, type, arg) => {
     let result = JSON.parse(arg).data
     let ul = document.createElement('ul')
     ul.className = 'top_list'
@@ -59,6 +59,9 @@ const utils = require('../../../src/utils')
   ipcRenderer.on('init_bdTop', (e, arg) => {
     let result = JSON.parse(arg)
     for (let i = 0; i < result.length; i++) {
+      if (result[i].name == '动漫') {
+        continue
+      }
       let ul = document.createElement('ul')
       ul.className = 'top_list'
       let div = document.createElement('div')
@@ -170,7 +173,7 @@ const utils = require('../../../src/utils')
   search_ul.addEventListener('click', e => {
     let path = e.path
     for (let i = 0; i < path.length; i++) {
-      if ((path[i].className+'').includes('result-item')) {
+      if ((path[i].className + '').includes('result-item')) {
         let query = path[i].lastChild.nodeValue;
         popups.show()
         popups.loading()
@@ -186,7 +189,7 @@ const utils = require('../../../src/utils')
         let query = path[i].querySelector('.video_meta_title').title;
         popups.show()
         popups.loading()
-        ipcRenderer.send('query', "你好")
+        ipcRenderer.send('query', query)
       }
     }
   })

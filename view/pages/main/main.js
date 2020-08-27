@@ -1,6 +1,7 @@
 const { remote, ipcRenderer } = require('electron')
 const Page = require('../../../src/page')
 const main = document.querySelector('main')
+const loading = require('./loading')
 let page = new Page(main)
 //获取当前窗口
 const win = remote.getCurrentWindow()
@@ -92,12 +93,19 @@ popups.show = function () {
 popups.hide = function () {
   this.style.height = `0px`
 }
+popups.loadingDom = popups.querySelector('#loading')
+
+popups.loading = function (show = true) {
+  //载入中提示...
+  
+}
 popups.hideDom = popups.querySelector('#popups_hide')
 popups.hideDom.addEventListener('click', e => {
   popups.hide()
 })
 popups.warpper = popups.querySelector('.popups_warpper')
-popups.loading = function (show = true) {
-  //载入中提示...
-}
-/* popups.show() */
+ipcRenderer.on('query', (e, videos) => {
+  popups.loading(false)
+  console.log(videos);
+})
+
